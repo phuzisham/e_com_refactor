@@ -10,7 +10,7 @@
         <p><%= number_to_currency product.price %></p>
         <%= form_for @order_item, remote: true do |f| %>
           <%= f.hidden_field :product_id, value: product.id %>
-          <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!", html: { :class => 'cartAdd'  } %>
+          <%= f.number_field :quantity, in: 1.0..20.0, value: 1, placeholder: "Oops, breaks if you don't add input!", html: { :class => 'cartAdd'  } %>
           <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
         <% end %>
       </div>
