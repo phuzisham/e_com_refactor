@@ -17,5 +17,4 @@ class CartsController < ApplicationController
       redirect_to sign_in_path
     end
   end
-
 end
