@@ -1,15 +1,10 @@
-class Seed
+Product.destroy_all
 
-  def self.begin
-    seed = Seed.new
-    seed.generate_products
-  end
-
-  def generate_products
-    20.times do |i|
-      Product.create!(name: Faker::Lorem.word, price: rand(10...100), description: Faker::Lorem.sentence(5, false, 0).chop)
-    end
-  end
+20.times do
+  Product.create!(name: Faker::Lorem.word,
+                  price: rand(10...100),
+                  description: Faker::Lorem.sentence(5, false, 0).chop,
+                  photo: URI.parse(Faker::LoremPixel.image))
 end
-
-Seed.begin
+  
+p "Created #{Product.count} products"

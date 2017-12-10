@@ -5,6 +5,7 @@
     <% @products.each do |product| %>
       <div class="col-sm-4">
         <h4 id="<%= product.name %>"><%= product.name  %></h4>
+        <%= image_tag product.photo.url(:medium) %>
         <small><%= link_to 'Show', product, remote: true %></small>
         <p class="hidden" id="ProdDesc<%= product.id %>"><%= product.description %></p>
         <p><%= number_to_currency product.price %></p>
