@@ -1,5 +1,14 @@
 # Product Site
 
+#### _Created: 12.08.2017_
+#### _Last Modified: 12.11.2017_
+
+#### By _David Hale_
+
+## Description
+
+_Product site refactor from existing code._
+
 ## Refactored Content
 
 * _Add AJAX for adding product to cart._
@@ -11,17 +20,6 @@
 * _Add flash messages for update and delete._
 * _Add paperclip for images._
 * _Add product validations._
-
-#### _Created: 12.08.2017_
-#### _Last Modified: 12.11.2017_
-
-#### By _David Hale_
-
-## Description
-
-_Product site refactor from existing code._
-
-![Screenshot](https://github.com/phuzisham/luigis_product_site/blob/master/img/cap.png "Screen Capture")
 
 ## User Stories
 
