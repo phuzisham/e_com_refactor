@@ -1,11 +1,16 @@
 <h3>Products</h3>
 
+
+
+<% counter = 0 %>
+
 <div class="row">
-  <div class="section">
+  <% if @products.any? %>
     <% @products.each do |product| %>
-      <div class="col-sm-4">
+      <div class="col">
         <h4 id="<%= product.name %>"><%= product.name  %></h4>
         <%= image_tag product.photo.url(:medium) %>
+        <br>
         <small><%= link_to 'Show', product, remote: true %></small>
         <p class="hidden" id="ProdDesc<%= product.id %>"><%= product.description %></p>
         <p><%= number_to_currency product.price %></p>
@@ -13,8 +18,15 @@
           <%= f.hidden_field :product_id, value: product.id %>
           <%= f.number_field :quantity, in: 1.0..20.0, value: 1, placeholder: "Oops, breaks if you don't add input!", html: { :class => 'cartAdd'  } %>
           <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
+        </div>
+        <% counter += 1%>
+        <% if counter == 3 %>
+          <% counter = 0 %>
+          </div>
+          <hr>
+          <div class="row">
         <% end %>
-      </div>
+      <% end %>
     <% end %>
-  </div>
+  <% end %>
 </div>
