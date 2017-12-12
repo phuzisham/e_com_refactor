@@ -18,6 +18,14 @@
           <%= f.hidden_field :product_id, value: product.id %>
           <%= f.number_field :quantity, in: 1.0..20.0, value: 1, placeholder: "Oops, breaks if you don't add input!", html: { :class => 'cartAdd'  } %>
           <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
+          <% if current_user && current_user.admin %>
+            <span>
+              <%= link_to "Edit", edit_product_path(product) %> |
+              <%= link_to "Delete", product_path(product),
+                                       :data => {:confirm => "Are you sure?",
+                                                      :method => "delete"} %>
+            </span>
+          <% end %>
         </div>
         <% counter += 1%>
         <% if counter == 3 %>
